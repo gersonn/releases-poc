@@ -1,5 +1,5 @@
 {
-  "name": "changesets-poc",
+  "name": "releases-poc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,5 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
-    "@changesets/cli": "^2.26.2"
-  }
+  "dependencies": {}
 }
