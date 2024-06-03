@@ -10,7 +10,8 @@ on:
 jobs:
   # Creates or Updates release PR
   release_pr:
-    name: Create/Update Release PR
+    if: ${{ startsWith(github.head_ref, 'release-') }}
+    name: Create release
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -29,5 +30,3 @@ jobs:
       - name: get release branch
         run: |
           echo "paths_released = ${{ steps.release.outputs.paths_released }}"
-          echo "prs = ${{ steps.release.outputs.prs }}"
-          echo "pr = ${{ steps.release.outputs.pr }}"
