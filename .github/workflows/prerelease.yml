@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 30
 
     outputs:
-      prs: ${{ steps.release.outputs.prs || [] }}
+      prs: ${{ steps.release.outputs.prs || '[]' }}
 
     steps:
       - uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: ${{ needs.release_pr.outputs.prs }}
+        package: ${{ fromJSON(needs.release_pr.outputs.prs) }}
     steps:
       - name: Get package name
         run: echo "PACKAGE_NAME=${{ matrix.package.title }}" | cut -d' ' -f3 >> $GITHUB_ENV
