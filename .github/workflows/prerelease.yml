@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 30
 
     outputs:
-      prs: ${{ steps.release.outputs.prs || '[]' }}
+      prs: ${{ steps.release.outputs.prs }}
 
     steps:
       - uses: actions/checkout@v3
@@ -33,6 +33,7 @@ jobs:
 
   publish_prerelease:
     name: Trigger prerelease package publish
+    if: ${{ needs.release_pr.outputs.prs != '' }}
     runs-on: [self-hosted, dj-ubuntu-2004-latest, ARM64]
     needs: release_pr
     timeout-minutes: 30
