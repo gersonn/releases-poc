@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 30
 
     outputs:
-      prs: ${{ steps.release.outputs.prs || '[]' }}
+      prs: ${{ steps.release.outputs.prs || [] }}
 
     steps:
       - uses: actions/checkout@v3
