@@ -26,6 +26,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           config-file: release-please-prerelease.json
+          skip-github-release: true
 
       - name: get release branch
         run: |

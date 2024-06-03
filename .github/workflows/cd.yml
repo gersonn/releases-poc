@@ -26,6 +26,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           config-file: release-please-release.json
+          skip-github-pull-request: true
 
       - name: get release branch
         run: |
