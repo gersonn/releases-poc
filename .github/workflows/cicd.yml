@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 30
 
     outputs:
-      pr: ${{ steps.create-pr.outputs.pr }}
+      prs: ${{ steps.release.outputs.prs }}
 
     steps:
       - uses: actions/checkout@v3
@@ -30,4 +30,17 @@ jobs:
       - name: get release branch
         run: |
           echo "prs = ${{ steps.release.outputs.prs }}"
-          echo "pr = ${{ steps.release.outputs.pr }}"
+
+  publish_prerelease:
+    name: Trigger prerelease package publish
+    runs-on: [self-hosted, dj-ubuntu-2004-latest, ARM64]
+    needs: prerelease_pr
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJSON(needs.prerelease_pr.outputs.prs) }}
+    steps:
+      - name: Get package name
+        run: echo "PACKAGE_NAME=${{ matrix.package.title }}" | cut -d' ' -f3 >> $GITHUB_ENV
