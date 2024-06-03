@@ -13,7 +13,7 @@
   "labels": ["skip build"],
 
   "packages": {
-    "packeges/package-one": {},
+    "packages/package-one": {},
     "packages/package-two": {},
     "packages/package-three": {}
   }
