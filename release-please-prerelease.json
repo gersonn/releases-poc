@@ -10,7 +10,7 @@
   "release-search-depth": 250,
   "commit-search-depth": 200,
   "sequential-calls": false,
-  "labels": ["skip build"],
+  "label": ["skip build"],
 
   "packages": {
     "packages/package-one": {},
