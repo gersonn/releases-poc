@@ -1,4 +1,4 @@
-name: Continuous integration
+name: Continuous Deployment
 
 on:
   pull_request:
@@ -10,8 +10,8 @@ on:
 jobs:
   # Creates or Updates release PR
   release_pr:
-    name: Create/Update Release PR
-    if: ${{ !startsWith(github.head_ref, 'release-') }}
+    if: ${{ startsWith(github.head_ref, 'release-') }}
+    name: Create release
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -25,9 +25,8 @@ jobs:
         id: release
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          config-file: release-please-prerelease.json
+          config-file: release-please-release.json
 
       - name: get release branch
         run: |
-          echo "prs = ${{ steps.release.outputs.prs }}"
-          echo "pr = ${{ steps.release.outputs.pr }}"
+          echo "paths_released = ${{ steps.release.outputs.paths_released }}"
