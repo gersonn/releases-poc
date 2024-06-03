@@ -5,7 +5,6 @@
   "bump-patch-for-minor-pre-major": true,
   "prerelease-type": "beta",
   "prerelease": true,
-  "skip-github-release": true,
   "separate-pull-requests": true,
   "release-search-depth": 250,
   "commit-search-depth": 200,
