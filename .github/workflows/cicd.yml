@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: ${{ fromJSON(needs.release_pr.outputs.prs) }}
+        package: ${{ needs.release_pr.outputs.prs }}
     steps:
       - name: Get package name
         run: echo "PACKAGE_NAME=${{ matrix.package.title }}" | cut -d' ' -f3 >> $GITHUB_ENV
