@@ -1,0 +1,32 @@
+name: Continuous Deployment
+
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - 'packages/**'
+    branches: [main]
+
+jobs:
+  # Creates or Updates release PR
+  release_pr:
+    if: ${{ startsWith(github.head_ref, 'release-') }}
+    name: Create release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    outputs:
+      pr: ${{ steps.create-pr.outputs.pr }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          config-file: release-please-release.json
+
+      - name: get release branch
+        run: |
+          echo "paths_released = ${{ steps.release.outputs.paths_released }}"
