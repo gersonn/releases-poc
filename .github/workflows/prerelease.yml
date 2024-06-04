@@ -26,10 +26,6 @@ jobs:
           config-file: release-please-config.json
           skip-github-release: true
 
-      - name: get release branch
-        run: |
-          echo "prs = ${{ steps.release.outputs.prs }}"
-
   publish_prerelease:
     name: Trigger prerelease package publish
     if: ${{ needs.release_pr.outputs.prs != '' }}
