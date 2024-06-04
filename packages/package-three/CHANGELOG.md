@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/gersonn/releases-poc/compare/package-three-v1.2.0...package-three-v1.3.0) (2024-06-04)
+
+
+### Features
+
+* validate-all-works ([#39](https://github.com/gersonn/releases-poc/issues/39)) ([83ace1c](https://github.com/gersonn/releases-poc/commit/83ace1c7b68344bf8d0bdff0ac3fd4e68d89d7fb))
+
 ## [1.2.0](https://github.com/gersonn/releases-poc/compare/package-three-v1.1.1...package-three-v1.2.0) (2024-06-04)
 
 
