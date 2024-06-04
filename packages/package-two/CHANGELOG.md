@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/gersonn/releases-poc/compare/package-two-v1.2.0...package-two-v1.2.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* release ([04cca65](https://github.com/gersonn/releases-poc/commit/04cca65b5317e6920d6f16b62dd08e2951a7cb1f))
+* release-please ([ae141e0](https://github.com/gersonn/releases-poc/commit/ae141e0dadaf4acf553def0d3c72f667518a525b))
+
 ## [1.2.0](https://github.com/gersonn/releases-poc/compare/package-two-v1.1.0...package-two-v1.2.0) (2024-06-03)
 
 
